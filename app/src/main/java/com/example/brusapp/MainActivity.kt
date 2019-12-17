@@ -1,5 +1,6 @@
 package com.example.brusapp
 
+import android.content.Intent
 import android.opengl.Matrix
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -36,9 +38,8 @@ class MainActivity : AppCompatActivity() {
         for(i in 0..last){
             values.add(0)
             val iv = ImageView(this)
-
             iv.id = View.generateViewId()
-            iv.setImageResource(sList[i])
+            iv.setImageResource(sodaList.imageID[i])
             iv.layoutParams = LinearLayout.LayoutParams(250,300)
             test.addView(iv)
             list.add(iv)
@@ -73,12 +74,23 @@ class MainActivity : AppCompatActivity() {
             test.addView(mButn)
             test.addView(tView)
         }
-        val const = ConstraintSet()
-        const.clone(test)
+
 
         var temp: ImageView = list[0]
         var first = true
 
+        val confButtn = Button(this)
+        confButtn.id = View.generateViewId()
+        confButtn.text = "Confirm"
+        confButtn.setOnClickListener {
+            val intent = Intent(this,OverView::class.java)
+            intent.putExtra("values",values)
+            startActivity(intent)
+        }
+        test.addView(confButtn)
+
+        val const = ConstraintSet()
+        const.clone(test)
 
         for(i in 0..last){
             if(first){
@@ -89,11 +101,6 @@ class MainActivity : AppCompatActivity() {
             }else{
                 const.connect(list[i].id,ConstraintSet.LEFT,ConstraintSet.PARENT_ID,ConstraintSet.LEFT)
                 const.connect(list[i].id,ConstraintSet.TOP,temp.id,ConstraintSet.BOTTOM,10)
-
-                if(i==last){
-
-                }
-
                 temp = list[i]
             }
             const.connect(minList[i].id,ConstraintSet.LEFT,list[i].id,ConstraintSet.RIGHT)
@@ -109,9 +116,11 @@ class MainActivity : AppCompatActivity() {
             const.connect(plsList[i].id,ConstraintSet.BOTTOM,list[i].id,ConstraintSet.BOTTOM)
 
             const.applyTo(test)
-
         }
-
+        const.connect(confButtn.id,ConstraintSet.TOP,list[last].id,ConstraintSet.BOTTOM)
+        const.connect(confButtn.id,ConstraintSet.LEFT,ConstraintSet.PARENT_ID,ConstraintSet.LEFT)
+        const.connect(confButtn.id,ConstraintSet.RIGHT,ConstraintSet.PARENT_ID,ConstraintSet.RIGHT)
+        const.applyTo(test)
 
         //setSupportActionBar(toolbar)
     }

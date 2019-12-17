@@ -13,4 +13,10 @@ class SodaList{
         R.drawable.sprite,
         R.drawable.villa
     )
+    var imageID = arrayListOf<Int>()
+    constructor(){
+        for (i in ImageIdList){
+            imageID.add(i)
+        }
+    }
 }
