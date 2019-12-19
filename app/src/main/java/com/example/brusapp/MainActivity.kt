@@ -1,30 +1,26 @@
 package com.example.brusapp
 
 import android.content.Intent
-import android.opengl.Matrix
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val sodaList = SodaList()
-        var sList = sodaList.ImageIdList
+        val sodaList = SodaTypes()
+        var sList = sodaList.imageIdList
+
+        val s = sodaList.sodaList
 
         var list = arrayListOf<ImageView>()
         var plsList = arrayListOf<Button>()
@@ -62,10 +58,12 @@ class MainActivity : AppCompatActivity() {
 
                 if(values[i]>0){
                     --values[i]
+                    sodaList.sodaList[i].value--
                     txtList[i].text = values[i].toString()
                 }else txtList[i].text = "0"
             }
             pButn.setOnClickListener {
+                sodaList.sodaList[i].value++
                 ++values[i]
                 txtList[i].text = values[i].toString()
             }
@@ -83,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         confButtn.id = View.generateViewId()
         confButtn.text = "Confirm"
         confButtn.setOnClickListener {
-            val intent = Intent(this,OverView::class.java)
+            val intent = Intent(this,SodaOwerview::class.java)
             intent.putExtra("values",values)
             startActivity(intent)
         }
@@ -121,6 +119,7 @@ class MainActivity : AppCompatActivity() {
         const.connect(confButtn.id,ConstraintSet.LEFT,ConstraintSet.PARENT_ID,ConstraintSet.LEFT)
         const.connect(confButtn.id,ConstraintSet.RIGHT,ConstraintSet.PARENT_ID,ConstraintSet.RIGHT)
         const.applyTo(test)
+
 
         //setSupportActionBar(toolbar)
     }

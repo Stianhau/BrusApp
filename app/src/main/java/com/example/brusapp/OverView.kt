@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.overview.*
 
 class  OverView : AppCompatActivity(){
@@ -15,14 +14,14 @@ class  OverView : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.overview)
 
-        val slist = SodaList()
+        val slist = SodaTypes()
         val idList = slist.imageID
         var value = intent.getIntegerArrayListExtra("values")
         var txtList = arrayListOf<TextView>()
         val imgList = arrayListOf<ImageView>()
 
 
-        var last = slist.ImageIdList.size-1
+        var last = slist.imageIdList.size-1
         for (i in 0..last){
             if(value[i]!=0){
                 val iv = ImageView(this)
