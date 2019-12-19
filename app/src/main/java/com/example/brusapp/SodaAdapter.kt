@@ -19,7 +19,11 @@ class SodaAdapter(val sodaList: ArrayList<SodaTypes.Soda>) : RecyclerView.Adapte
 
         }
     }
+    fun removeAt(position: Int){
+        sodaList.removeAt(position)
+        notifyItemRemoved(position)
 
+    }
     override fun onCreateViewHolder(parrent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parrent.context).inflate(R.layout.soda_list_row,parrent,false)
         return  MyViewHolder(view)

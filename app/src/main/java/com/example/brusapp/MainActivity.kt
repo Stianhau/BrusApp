@@ -1,9 +1,11 @@
 package com.example.brusapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -11,22 +13,35 @@ import android.widget.LinearLayout
 import android.widget.TextView
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
+    var values = arrayListOf<Int>()
+    var txtList = arrayListOf<TextView>()
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 1){
+            if(resultCode == Activity.RESULT_OK){
+                values = data!!.getIntegerArrayListExtra("values")
+               for(i in 0..values.size-1){
+                   txtList[i].text = values[i].toString()
+               }
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val sodaList = SodaTypes()
         var sList = sodaList.imageIdList
 
-        val s = sodaList.sodaList
 
         var list = arrayListOf<ImageView>()
         var plsList = arrayListOf<Button>()
         var minList = arrayListOf<Button>()
-        var txtList = arrayListOf<TextView>()
-        var values = arrayListOf<Int>()
+
 
         val last = sList.size-1
 
@@ -35,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             values.add(0)
             val iv = ImageView(this)
             iv.id = View.generateViewId()
-            iv.setImageResource(sodaList.imageID[i])
+            iv.setImageResource(sList[i])
             iv.layoutParams = LinearLayout.LayoutParams(250,300)
             test.addView(iv)
             list.add(iv)
@@ -58,12 +73,11 @@ class MainActivity : AppCompatActivity() {
 
                 if(values[i]>0){
                     --values[i]
-                    sodaList.sodaList[i].value--
+
                     txtList[i].text = values[i].toString()
                 }else txtList[i].text = "0"
             }
             pButn.setOnClickListener {
-                sodaList.sodaList[i].value++
                 ++values[i]
                 txtList[i].text = values[i].toString()
             }
@@ -83,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         confButtn.setOnClickListener {
             val intent = Intent(this,SodaOwerview::class.java)
             intent.putExtra("values",values)
-            startActivity(intent)
+            startActivityForResult(intent,1)
         }
         test.addView(confButtn)
 

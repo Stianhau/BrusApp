@@ -15,7 +15,7 @@ class  OverView : AppCompatActivity(){
         setContentView(R.layout.overview)
 
         val slist = SodaTypes()
-        val idList = slist.imageID
+        val idList = slist.imageIdList
         var value = intent.getIntegerArrayListExtra("values")
         var txtList = arrayListOf<TextView>()
         val imgList = arrayListOf<ImageView>()
