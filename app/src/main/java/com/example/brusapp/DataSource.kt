@@ -16,6 +16,7 @@ class DataSource {
             list.add(Soda(R.drawable.mozelf,0, list.size))
             list.add(Soda(R.drawable.sprite,0, list.size))
             list.add(Soda(R.drawable.villa,0, list.size))
+            list.add(Soda(0,0,0))
         }
 
         fun setAmount(amount: Int,index:Int){
