@@ -16,6 +16,7 @@ class SodaOwerview : AppCompatActivity() {
     private val sodaTypes = SodaTypes()
     val values = arrayListOf<Int>()
     override fun onBackPressed() {
+        Log.d("tag",SodaTypes.list[0].value.toString())
         val intnt = Intent()
         intnt.putExtra("values",values)
         setResult(Activity.RESULT_OK,intnt)

@@ -19,7 +19,8 @@ class  OverView : AppCompatActivity(){
         var value = intent.getIntegerArrayListExtra("values")
         var txtList = arrayListOf<TextView>()
         val imgList = arrayListOf<ImageView>()
-
+        SodaTypes.createDataSet()
+        SodaTypes.setValue(2,0)
 
         var last = slist.imageIdList.size-1
         for (i in 0..last){
