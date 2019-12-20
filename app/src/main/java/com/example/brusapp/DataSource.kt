@@ -1,7 +1,5 @@
 package com.example.brusapp
 
-import java.time.temporal.TemporalAmount
-
 class DataSource {
     companion object{
         val list = ArrayList<Soda>()
@@ -18,12 +16,5 @@ class DataSource {
             list.add(Soda(R.drawable.villa,0, list.size))
             list.add(Soda(0,0,0))
         }
-
-        fun setAmount(amount: Int,index:Int){
-            if(index< list.size){
-                list[index].amount = amount
-            }
-        }
-
     }
 }

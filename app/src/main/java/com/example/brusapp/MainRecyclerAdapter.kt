@@ -1,12 +1,10 @@
 package com.example.brusapp
 import android.content.Intent
-import android.support.v4.app.ActivityCompat.startActivityForResult
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import kotlinx.android.synthetic.main.main_recyclerview_row.view.*
 import kotlinx.android.synthetic.main.main_recyclerview_row_conf.view.*
 
@@ -52,8 +50,8 @@ class MainRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         items = mainList
     }
 
-    class ConfirmViewHolder(var view : View) : RecyclerView.ViewHolder(view) {
-        val confButton = view.conf_button
+    class ConfirmViewHolder(view : View) : RecyclerView.ViewHolder(view) {
+        private val confButton = view.conf_button
 
         fun bind(txt:String){
             confButton.text = txt
@@ -66,10 +64,10 @@ class MainRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
     class MainViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val incButton = view.inc_button
-        val decButton = view.dec_button
-        val textView = view.textView_amount
-        val imageView = view.imageView
+        private val incButton = view.inc_button
+        private val decButton = view.dec_button
+        private val textView = view.textView_amount
+        private val imageView = view.imageView
 
         fun bind(soda:Soda){
             incButton.text = "+"

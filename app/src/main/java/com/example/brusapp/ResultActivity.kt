@@ -11,46 +11,14 @@ import kotlinx.android.synthetic.main.result_recyclerview.*
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var resultRecyclerAdapter: ResultRecyclerAdapter
-//    private val sodaTypes = SodaTypes()
-//    val values = arrayListOf<Int>()
-
     private val resultList = arrayListOf<Soda>()
 
-//    override fun onBackPressed() {
-//        Log.d("tag",SodaTypes.list[0].value.toString())
-//        val intnt = Intent()
-//        intnt.putExtra("values",values)
-//        setResult(Activity.RESULT_OK,intnt)
-//        finish()
-//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.result_recyclerview)
 
         initRecyclerView()
         addData()
-
-//        recycler_view!!.layoutManager = LinearLayoutManager(applicationContext)
-//
-//
-//
-//        recycler_view!!.itemAnimator = DefaultItemAnimator()
-//        recycler_view!!.addItemDecoration((DividerItemDecoration(this,LinearLayoutManager.VERTICAL)))
-//
-//        val adapter = ResultAdapter(slist)
-//
-//        recycler_view!!.adapter = adapter
-//
-//        val swipeHandler = object : SwipeToDeleteCallback(this){
-//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val position:Int = viewHolder.adapterPosition
-//                values[slist[position].id]=0
-//                adapter.removeAt(position)
-//            }
-//        }
-//        val itemTouchHelper = ItemTouchHelper(swipeHandler)
-//        itemTouchHelper.attachToRecyclerView(recycler_view)
-
     }
 
     private fun initRecyclerView() {
@@ -69,7 +37,6 @@ class ResultActivity : AppCompatActivity() {
                 }
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    val pos = viewHolder.adapterPosition
                     resultRecyclerAdapter.removeAt(viewHolder)
                 }
 
