@@ -14,12 +14,19 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_recyclerview.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainRecyclerAdapter: MainRecyclerAdapter
+    override fun onBackPressed() {
+
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        mainRecyclerAdapter.notifyDataSetChanged()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,5 +1,7 @@
 package com.example.brusapp
-
+import android.content.Intent
+import android.support.v4.app.ActivityCompat.startActivityForResult
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -56,12 +58,14 @@ class MainRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         fun bind(txt:String){
             confButton.text = txt
             confButton.setOnClickListener {
-                Toast.makeText(view.context,"YOLO",Toast.LENGTH_LONG).show()
+
+                val myIntent = Intent(super.itemView.context, ResultActivity::class.java)
+                startActivity(super.itemView.context,myIntent,null)
             }
         }
     }
 
-    class MainViewHolder(var view:View) : RecyclerView.ViewHolder(view){
+    class MainViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val incButton = view.inc_button
         val decButton = view.dec_button
         val textView = view.textView_amount
@@ -72,6 +76,7 @@ class MainRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             decButton.text = "-"
             textView.text = soda.amount.toString()
             imageView.setImageResource(soda.imgID)
+
 
             incButton.setOnClickListener {
                 DataSource.list[soda.index].amount++
