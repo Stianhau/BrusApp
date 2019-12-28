@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.main_recyclerview_row.view.*
 import kotlinx.android.synthetic.main.main_recyclerview_row_conf.view.*
 
-class MainRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MainRecyclerAdapter(val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    var items: List<Soda> = ArrayList()
+    private var items: List<Soda> = ArrayList()
     override fun onCreateViewHolder(parrent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
             TYPE_MAIN -> {
@@ -34,10 +34,10 @@ class MainRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
             is MainViewHolder -> {
-                holder.bind(items[position])
+                holder.bind(items[position],itemClickListener)
             }
             is ConfirmViewHolder ->{
-                holder.bind("Confirm")
+                holder.bind("Confirm",itemClickListener)
             }
         }
     }
@@ -53,45 +53,41 @@ class MainRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     class ConfirmViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         private val confButton = view.conf_button
 
-        fun bind(txt:String){
+        fun bind(txt:String, clickListener: OnItemClickListener){
             confButton.text = txt
-            confButton.setOnClickListener {
+            itemView.conf_button.setOnClickListener { clickListener.onConfButtonClicked() }
 
+            /* confButton.setOnClickListener {
                 val myIntent = Intent(super.itemView.context, ResultActivity::class.java)
                 startActivity(super.itemView.context,myIntent,null)
-            }
+            }*/
         }
     }
 
-    class MainViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        private val incButton = view.inc_button
-        private val decButton = view.dec_button
-        private val textView = view.textView_amount
-        private val imageView = view.imageView
+    class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        private val incButton = itemView.inc_button
+        private val decButton = itemView.dec_button
+        private val textView = itemView.textView_amount
+        private val imageView = itemView.imageView
 
-        fun bind(soda:Soda){
+        fun bind(soda:Soda, clickListener: OnItemClickListener) {
             incButton.text = "+"
             decButton.text = "-"
             textView.text = soda.amount.toString()
             imageView.setImageResource(soda.imgID)
-
-
-            incButton.setOnClickListener {
-                DataSource.list[soda.index].amount++
-                textView.text = DataSource.list[soda.index].amount.toString()
-            }
-            decButton.setOnClickListener {
-                if(DataSource.list[soda.index].amount != 0){
-                    DataSource.list[soda.index].amount--
-                    textView.text = DataSource.list[soda.index].amount.toString()
-                }
-            }
+            itemView.inc_button.setOnClickListener { clickListener.onIncButtonClicked(soda) }
+            itemView.dec_button.setOnClickListener { clickListener.onDecButtonClicked(soda) }
         }
     }
     companion object{
         private const val TYPE_MAIN = 0
         private const val TYPE_CONF = 1
     }
-
 }
+interface OnItemClickListener{
+    fun onIncButtonClicked(soda: Soda)
+    fun onDecButtonClicked(soda: Soda)
+    fun onConfButtonClicked()
+}
+
 
