@@ -27,6 +27,7 @@ class ResultActivity : AppCompatActivity() {
             resultRecyclerAdapter = ResultRecyclerAdapter()
             adapter = resultRecyclerAdapter
             addItemDecoration((DividerItemDecoration(this@ResultActivity,LinearLayoutManager.VERTICAL)))
+
             val helper = object : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
                 override fun onMove(
                     p0: RecyclerView,
