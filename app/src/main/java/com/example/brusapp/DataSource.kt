@@ -55,7 +55,6 @@ class DataSource {
             list.add(Soda(R.drawable.brisgronn, 0, list.size, Brand.VANN,list.size))
             list.add(Soda(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size))
             list.add(Soda(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(0, 0, 0, Brand.COLA,list.size))
 
             brandList.add("Alle")
             brandList.add("Ringnes")

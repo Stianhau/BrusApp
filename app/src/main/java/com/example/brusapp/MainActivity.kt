@@ -31,7 +31,10 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         addDataSet()
         initSpinner()
 
-
+        c_button.setOnClickListener {
+            val intent = Intent(this, ResultActivity::class.java)
+            startActivity(intent)
+        }
     }
     private fun initSpinner(){
         spin.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
@@ -79,7 +82,6 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private fun addDataSet() {
         DataSource.createDataSet()
-        //mainRecyclerAdapter.submitList(DataSource.list)
     }
 
     private fun initRecyclerView() {
@@ -103,10 +105,5 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
             soda.amount--
             mainRecyclerAdapter.notifyItemChanged(soda.currindex)
         }
-    }
-
-    override fun onConfButtonClicked() {
-        val intent = Intent(this, ResultActivity::class.java)
-        startActivity(intent)
     }
 }
