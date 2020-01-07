@@ -3,9 +3,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.main_linear_row.view.*
 import kotlinx.android.synthetic.main.main_recyclerview_row.view.*
-import kotlinx.android.synthetic.main.main_recyclerview_row_conf.view.*
 
 class MainRecyclerAdapter(private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -13,7 +11,7 @@ class MainRecyclerAdapter(private val itemClickListener: OnItemClickListener) : 
     override fun onCreateViewHolder(parrent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
             TYPE_MAIN -> {
-                MainViewHolder(LayoutInflater.from(parrent.context).inflate(R.layout.main_linear_row,parrent,false))
+                MainViewHolder(LayoutInflater.from(parrent.context).inflate(R.layout.main_recyclerview_row,parrent,false))
             }
             else -> throw IllegalArgumentException("Invalid view type")
         }
