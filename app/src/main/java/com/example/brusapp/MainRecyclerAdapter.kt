@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.main_linear_row.view.*
 import kotlinx.android.synthetic.main.main_recyclerview_row.view.*
 import kotlinx.android.synthetic.main.main_recyclerview_row_conf.view.*
 
-class MainRecyclerAdapter(val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MainRecyclerAdapter(private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     private var items: List<Soda> = ArrayList()
     override fun onCreateViewHolder(parrent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

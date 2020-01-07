@@ -3,6 +3,8 @@ package com.example.brusapp
 class DataSource {
     companion object{
         val list = ArrayList<Soda>()
+
+
         val brandList = ArrayList<CharSequence>()
         fun createDataSet(){
             list.clear()
@@ -67,6 +69,21 @@ class DataSource {
             for(item in list){
                 item.currindex = item.index
             }
+        }
+        fun sortOnBrand(brand: Brand):ArrayList<Soda>{
+                val sortList = ArrayList<Soda>()
+                for(item in list){
+                    if(item.brand == brand){
+                        item.currindex = sortList.size
+                        sortList.add(item)
+                    }
+                }
+            return sortList
+        }
+
+        fun sortOnBrand():ArrayList<Soda>{
+            updateCurrindex()
+            return list
         }
     }
 }

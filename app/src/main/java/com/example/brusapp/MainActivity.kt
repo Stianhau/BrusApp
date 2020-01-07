@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.main_recyclerview.*
 class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private lateinit var mainRecyclerAdapter: MainRecyclerAdapter
-    private val sortList = arrayListOf<Soda>()
+
     override fun onBackPressed() {
 
     }
@@ -51,33 +51,17 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 id: Long
             ) {
                 when(parent.getItemAtPosition(position).toString()){
-                    "Alle" -> sortOnBrand()
-                    "Ringnes" -> sortOnBrand(Brand.RINGNES)
-                    "Cola" -> sortOnBrand(Brand.COLA)
-                    "Vann" -> sortOnBrand(Brand.VANN)
-                    "Molde" -> sortOnBrand(Brand.MOLDE)
-                    "FirstPrice" -> sortOnBrand(Brand.FIRSTPRICE)
+                    "Alle" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand())
+                    "Ringnes" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.RINGNES))
+                    "Cola" ->  mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.COLA))
+                    "Vann" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.VANN))
+                    "Molde" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.MOLDE))
+                    "FirstPrice" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.FIRSTPRICE))
                 }
                 mainRecyclerAdapter.notifyDataSetChanged()
             }
 
         }
-    }
-    private fun sortOnBrand(brand: Brand){
-        sortList.clear()
-        for(item in DataSource.list){
-            if(item.brand == brand){
-                item.currindex = sortList.size
-                sortList.add(item)
-            }
-        }
-        mainRecyclerAdapter.submitList(sortList)
-
-    }
-    private fun sortOnBrand(){
-        DataSource.updateCurrindex()
-        mainRecyclerAdapter.submitList(DataSource.list)
-
     }
 
     private fun addDataSet() {
