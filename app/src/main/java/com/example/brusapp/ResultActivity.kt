@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.result_recyclerview.*
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var resultRecyclerAdapter: ResultRecyclerAdapter
-    private val resultList = arrayListOf<Soda>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,11 +47,6 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun addData() {
-        for(item in DataSource.list){
-            if(item.amount != 0){
-                resultList.add(item)
-            }
-        }
-        resultRecyclerAdapter.submitList(resultList)
+        resultRecyclerAdapter.submitList(DataSource.sortOnAmount())
     }
 }

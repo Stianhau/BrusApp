@@ -85,6 +85,16 @@ class DataSource {
             updateCurrindex()
             return list
         }
+
+        fun sortOnAmount() :ArrayList<Soda> {
+            val sortList = ArrayList<Soda>()
+            for(item in list){
+                if(item.amount != 0){
+                    sortList.add(item)
+                }
+            }
+            return sortList
+        }
     }
 }
 enum class Brand{
