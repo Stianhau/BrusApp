@@ -41,7 +41,7 @@ class ResultActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when (parent.getItemAtPosition(position).toString()) {
-                    Brand.ALLE.name -> updateData()
+                    Brand.MERKE.name -> updateData()
                     else -> {
                         val temp = parent.getItemAtPosition(position).toString()
                         updateData(Brand.valueOf(temp))

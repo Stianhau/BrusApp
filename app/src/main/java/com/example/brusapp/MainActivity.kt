@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
     private lateinit var mainRecyclerAdapter: MainRecyclerAdapter
 
     private lateinit var brandSpinnerAdapter: ArrayAdapter<CharSequence>
+    private lateinit var typeSpinnerAdapter: ArrayAdapter<CharSequence>
+
+
     override fun onBackPressed() {
 
     }
@@ -41,6 +44,31 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         }
     }
     private fun initSpinners(){
+        initBrand()
+        initType()
+    }
+    private fun initType(){
+
+
+        typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.typeList)
+        main_type_spinner.adapter = typeSpinnerAdapter
+        main_type_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+
+            }
+
+        }
+    }
+    private fun initBrand(){
         brandSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
         main_brand_spinner.adapter = brandSpinnerAdapter
         main_brand_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -56,7 +84,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 id: Long
             ) {
                 when(parent.getItemAtPosition(position).toString()){
-                    Brand.ALLE.name -> mainRecyclerAdapter.submitList(DataSource.filterBrand())
+                    Brand.MERKE.name -> mainRecyclerAdapter.submitList(DataSource.filterBrand())
 
                     else -> {
                         val temp = parent.getItemAtPosition(position).toString()
@@ -68,6 +96,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
             }
         }
     }
+
 
     private fun addDataSet() {
         DataSource.createDataSet()
