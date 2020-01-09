@@ -51,16 +51,16 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 id: Long
             ) {
                 when(parent.getItemAtPosition(position).toString()){
-                    "Alle" -> mainRecyclerAdapter.submitList(DataSource.filterBrand())
-                    "Ringnes" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.RINGNES))
-                    "Cola" ->  mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.COLA))
-                    "Vann" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.VANN))
-                    "Molde" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.MOLDE))
-                    "FirstPrice" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.FIRSTPRICE))
+                    Brand.ALLE.name -> mainRecyclerAdapter.submitList(DataSource.filterBrand())
+
+                    else -> {
+                        val temp = parent.getItemAtPosition(position).toString()
+                        mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.valueOf(temp)))
+                    }
                 }
+
                 mainRecyclerAdapter.notifyDataSetChanged()
             }
-
         }
     }
 

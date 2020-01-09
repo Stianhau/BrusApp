@@ -61,14 +61,9 @@ class DataSource {
             list.add(Drinkable(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size))
             list.add(Drinkable(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size))
 
-
-
-            brandList.add("Alle")
-            brandList.add("Ringnes")
-            brandList.add("Cola")
-            brandList.add("Vann")
-            brandList.add("FirstPrice")
-            brandList.add("Molde")
+            Brand.values().forEach {
+                brandList.add(it.name)
+            }
         }
         private fun updateCurrentIndex(){
             for(item in list){
@@ -94,13 +89,13 @@ class DataSource {
         fun filterAmount() :ArrayList<Drinkable> {
             amountOfEachBrand.clear()
             resultBrandList.clear()
-            resultBrandList.add("Alle")
+            resultBrandList.add(Brand.ALLE.name)
             val filterList = ArrayList<Drinkable>()
             for(item in list){
                 if(item.amount != 0){
                     if(!amountOfEachBrand.containsKey(item.brand)){
                         amountOfEachBrand[item.brand] = 1
-                        resultBrandList.add(item.brand.toString())
+                        resultBrandList.add(item.brand.name)
                         filterList.add(item)
                     }else{
                         val temp = 1 + amountOfEachBrand[item.brand]!!
@@ -123,8 +118,8 @@ class DataSource {
         }
     }
 }
-enum class Brand(val brand: String){
-    RINGNES("Ringnes"), COLA("Cola"), VANN("Vann"), FIRSTPRICE("FirstPrice"), MOLDE("Molde");
+enum class Brand(private val brand: String){
+    ALLE("Alle"), RINGNES("Ringnes"), COLA("Cola"), VANN("Vann"), FIRSTPRICE("FirstPrice"), MOLDE("Molde");
 
     override fun toString(): String {
         return brand

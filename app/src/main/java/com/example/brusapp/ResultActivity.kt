@@ -40,13 +40,13 @@ class ResultActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when (parent.getItemAtPosition(position).toString()) {
-                    "Alle" -> updateData()
-                    Brand.RINGNES.toString() -> updateData(Brand.RINGNES)
-                    "Cola" -> updateData(Brand.COLA)
-                    "Vann" -> updateData(Brand.VANN)
-                    "Molde" -> updateData(Brand.MOLDE)
-                    "FirstPrice" -> updateData(Brand.FIRSTPRICE)
+                    Brand.ALLE.name -> updateData()
+                    else -> {
+                        val temp = parent.getItemAtPosition(position).toString()
+                        updateData(Brand.valueOf(temp))
+                    }
                 }
+
                 resultRecyclerAdapter.notifyDataSetChanged()
             }
         }
