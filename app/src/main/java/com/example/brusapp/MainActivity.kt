@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         }
     }
     private fun initSpinner(){
-        spin.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
-        spin.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        main_brand_spinner.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
+        main_brand_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
             override fun onNothingSelected(parent: AdapterView<*>) {
 
@@ -51,12 +51,12 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 id: Long
             ) {
                 when(parent.getItemAtPosition(position).toString()){
-                    "Alle" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand())
-                    "Ringnes" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.RINGNES))
-                    "Cola" ->  mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.COLA))
-                    "Vann" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.VANN))
-                    "Molde" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.MOLDE))
-                    "FirstPrice" -> mainRecyclerAdapter.submitList(DataSource.sortOnBrand(Brand.FIRSTPRICE))
+                    "Alle" -> mainRecyclerAdapter.submitList(DataSource.filterBrand())
+                    "Ringnes" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.RINGNES))
+                    "Cola" ->  mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.COLA))
+                    "Vann" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.VANN))
+                    "Molde" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.MOLDE))
+                    "FirstPrice" -> mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.FIRSTPRICE))
                 }
                 mainRecyclerAdapter.notifyDataSetChanged()
             }
@@ -79,15 +79,15 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         }
     }
 
-    override fun onIncButtonClicked(soda: Soda) {
-        soda.amount++
-        mainRecyclerAdapter.notifyItemChanged(soda.currindex)
+    override fun onIncButtonClicked(drinkable: Drinkable) {
+        drinkable.amount++
+        mainRecyclerAdapter.notifyItemChanged(drinkable.currindex)
     }
 
-    override fun onDecButtonClicked(soda: Soda) {
-        if(soda.amount != 0){
-            soda.amount--
-            mainRecyclerAdapter.notifyItemChanged(soda.currindex)
+    override fun onDecButtonClicked(drinkable: Drinkable) {
+        if(drinkable.amount != 0){
+            drinkable.amount--
+            mainRecyclerAdapter.notifyItemChanged(drinkable.currindex)
         }
     }
 }

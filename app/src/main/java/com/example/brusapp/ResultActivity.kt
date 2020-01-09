@@ -6,6 +6,10 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import kotlinx.android.synthetic.main.main_recyclerview.*
 import kotlinx.android.synthetic.main.result_recyclerview.*
 
 class ResultActivity : AppCompatActivity() {
@@ -17,8 +21,37 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.result_recyclerview)
 
         initRecyclerView()
-        addData()
+        updateData()
+        initSpinner()
     }
+
+    private fun initSpinner() {
+        result_brand_spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, DataSource.resultBrandList)
+        result_brand_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                when (parent.getItemAtPosition(position).toString()) {
+                    "Alle" -> updateData()
+                    Brand.RINGNES.toString() -> updateData(Brand.RINGNES)
+                    "Cola" -> updateData(Brand.COLA)
+                    "Vann" -> updateData(Brand.VANN)
+                    "Molde" -> updateData(Brand.MOLDE)
+                    "FirstPrice" -> updateData(Brand.FIRSTPRICE)
+                }
+                resultRecyclerAdapter.notifyDataSetChanged()
+            }
+        }
+    }
+
 
     private fun initRecyclerView() {
         result_recycler_view.apply {
@@ -46,7 +79,13 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 
-    private fun addData() {
-        resultRecyclerAdapter.submitList(DataSource.sortOnAmount())
+    private fun updateData() {
+        val list = DataSource.filterAmount()
+        resultRecyclerAdapter.submitList(list)
+    }
+
+    private fun updateData(brand: Brand){
+        val list = DataSource.filterBrand(brand)
+        resultRecyclerAdapter.submitList(DataSource.filterAmount(list))
     }
 }

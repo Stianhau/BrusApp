@@ -1,6 +1,6 @@
 package com.example.brusapp
 
-data class Soda(
+data class Drinkable(
     var imgID: Int,
     var amount: Int,
     var index: Int,

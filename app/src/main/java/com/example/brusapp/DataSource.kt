@@ -2,61 +2,66 @@ package com.example.brusapp
 
 class DataSource {
     companion object{
-        val list = ArrayList<Soda>()
+        val list = ArrayList<Drinkable>()
 
+        val resultBrandList = ArrayList<CharSequence>()
 
         val brandList = ArrayList<CharSequence>()
+        val amountOfEachBrand = HashMap<Brand,Int>()
+
         fun createDataSet(){
             list.clear()
-            list.add(Soda(R.drawable.spritef, 0, list.size, Brand.COLA,list.size))
-            list.add(Soda(R.drawable.sprite, 0, list.size, Brand.COLA,list.size))
-            list.add(Soda(R.drawable.fantalemon, 0, list.size, Brand.COLA,list.size))
-            list.add(Soda(R.drawable.colalemon, 0, list.size, Brand.COLA,list.size))
-            list.add(Soda(R.drawable.fantaexotic, 0, list.size, Brand.COLA,list.size))
-            list.add(Soda(R.drawable.fantafree, 0, list.size, Brand.COLA,list.size))
-            list.add(Soda(R.drawable.fpfantaf, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.fpvillaf, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.peref, 0, list.size, Brand.MOLDE,list.size))
-            list.add(Soda(R.drawable.sitron, 0, list.size, Brand.MOLDE,list.size))
-            list.add(Soda(R.drawable.bring, 0, list.size, Brand.MOLDE,list.size))
-            list.add(Soda(R.drawable.pere, 0, list.size, Brand.MOLDE,list.size))
-            list.add(Soda(R.drawable.fpcola, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.fpcolaf, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.fpfanta, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.upf, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.up, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.solosup, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.solor, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.colalight, 0, list.size, Brand.COLA,list.size))
-            list.add(Soda(R.drawable.mozel, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.mozelf, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.villaf, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.inge, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.eventyr, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.pepsi, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.pepsilemon, 0, list.size, Brand.RINGNES,list.size))
-            list.add(Soda(R.drawable.fpvilla, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.fpvannk, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.fpvann, 0, list.size, Brand.FIRSTPRICE,list.size))
-            list.add(Soda(R.drawable.isapelsin, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.islime, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.issitron, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.isvann, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.isvannk, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.iseple, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.isgranat, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.bobleeple, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.boblesitron, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.boblevann, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.boblegranat, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.farrisgul, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.farrisgronn, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.farrisvann, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.brisrosa, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.brisrod, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.brisgronn, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size))
-            list.add(Soda(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.spritef, 0, list.size, Brand.COLA,list.size))
+            list.add(Drinkable(R.drawable.sprite, 0, list.size, Brand.COLA,list.size))
+            list.add(Drinkable(R.drawable.fantalemon, 0, list.size, Brand.COLA,list.size))
+            list.add(Drinkable(R.drawable.colalemon, 0, list.size, Brand.COLA,list.size))
+            list.add(Drinkable(R.drawable.fantaexotic, 0, list.size, Brand.COLA,list.size))
+            list.add(Drinkable(R.drawable.fantafree, 0, list.size, Brand.COLA,list.size))
+            list.add(Drinkable(R.drawable.fpfantaf, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.fpvillaf, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.peref, 0, list.size, Brand.MOLDE,list.size))
+            list.add(Drinkable(R.drawable.sitron, 0, list.size, Brand.MOLDE,list.size))
+            list.add(Drinkable(R.drawable.bring, 0, list.size, Brand.MOLDE,list.size))
+            list.add(Drinkable(R.drawable.pere, 0, list.size, Brand.MOLDE,list.size))
+            list.add(Drinkable(R.drawable.fpcola, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.fpcolaf, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.fpfanta, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.upf, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.up, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.solosup, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.solor, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.colalight, 0, list.size, Brand.COLA,list.size))
+            list.add(Drinkable(R.drawable.mozel, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.mozelf, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.villaf, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.inge, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.eventyr, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.pepsi, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.pepsilemon, 0, list.size, Brand.RINGNES,list.size))
+            list.add(Drinkable(R.drawable.fpvilla, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.fpvannk, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.fpvann, 0, list.size, Brand.FIRSTPRICE,list.size))
+            list.add(Drinkable(R.drawable.isapelsin, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.islime, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.issitron, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.isvann, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.isvannk, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.iseple, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.isgranat, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.bobleeple, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.boblesitron, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.boblevann, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.boblegranat, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.farrisgul, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.farrisgronn, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.farrisvann, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.brisrosa, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.brisrod, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.brisgronn, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size))
+            list.add(Drinkable(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size))
+
+
 
             brandList.add("Alle")
             brandList.add("Ringnes")
@@ -65,38 +70,65 @@ class DataSource {
             brandList.add("FirstPrice")
             brandList.add("Molde")
         }
-        fun updateCurrindex(){
+        private fun updateCurrentIndex(){
             for(item in list){
                 item.currindex = item.index
             }
         }
-        fun sortOnBrand(brand: Brand):ArrayList<Soda>{
-                val sortList = ArrayList<Soda>()
+        fun filterBrand(brand: Brand):ArrayList<Drinkable>{
+                val filterList = ArrayList<Drinkable>()
                 for(item in list){
                     if(item.brand == brand){
-                        item.currindex = sortList.size
-                        sortList.add(item)
+                        item.currindex = filterList.size
+                        filterList.add(item)
                     }
                 }
-            return sortList
+            return filterList
         }
 
-        fun sortOnBrand():ArrayList<Soda>{
-            updateCurrindex()
+        fun filterBrand():ArrayList<Drinkable>{
+            updateCurrentIndex()
             return list
         }
 
-        fun sortOnAmount() :ArrayList<Soda> {
-            val sortList = ArrayList<Soda>()
+        fun filterAmount() :ArrayList<Drinkable> {
+            amountOfEachBrand.clear()
+            resultBrandList.clear()
+            resultBrandList.add("Alle")
+            val filterList = ArrayList<Drinkable>()
             for(item in list){
                 if(item.amount != 0){
-                    sortList.add(item)
+                    if(!amountOfEachBrand.containsKey(item.brand)){
+                        amountOfEachBrand[item.brand] = 1
+                        resultBrandList.add(item.brand.toString())
+                        filterList.add(item)
+                    }else{
+                        val temp = 1 + amountOfEachBrand[item.brand]!!
+                        amountOfEachBrand[item.brand] = temp
+                        filterList.add(item)
+                    }
                 }
             }
-            return sortList
+            return filterList
+        }
+
+        fun filterAmount(resultList: ArrayList<Drinkable>) :ArrayList<Drinkable>{
+            val filterList = ArrayList<Drinkable>()
+            for(item in resultList){
+                if(item.amount != 0){
+                    filterList.add(item)
+                }
+            }
+            return filterList
         }
     }
 }
-enum class Brand{
-    RINGNES, COLA, VANN, FIRSTPRICE, MOLDE
+enum class Brand(val brand: String){
+    RINGNES("Ringnes"), COLA("Cola"), VANN("Vann"), FIRSTPRICE("FirstPrice"), MOLDE("Molde");
+
+    override fun toString(): String {
+        return brand
+    }
+
+
 }

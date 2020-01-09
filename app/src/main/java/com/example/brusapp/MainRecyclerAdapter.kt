@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.main_recyclerview_row.view.*
 
 class MainRecyclerAdapter(private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    private var items: List<Soda> = ArrayList()
+    private var items: List<Drinkable> = ArrayList()
     override fun onCreateViewHolder(parrent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
             TYPE_MAIN -> {
@@ -34,7 +34,7 @@ class MainRecyclerAdapter(private val itemClickListener: OnItemClickListener) : 
         return items.size
     }
 
-    fun submitList(mainList:List<Soda>){
+    fun submitList(mainList:List<Drinkable>){
         items = mainList
     }
 
@@ -44,13 +44,13 @@ class MainRecyclerAdapter(private val itemClickListener: OnItemClickListener) : 
         private val textView = itemView.t_view
         private val imageView = itemView.i_view
 
-        fun bind(soda:Soda, clickListener: OnItemClickListener) {
+        fun bind(drinkable:Drinkable, clickListener: OnItemClickListener) {
             incButton.text = "+"
             decButton.text = "-"
-            textView.text = soda.amount.toString()
-            imageView.setImageResource(soda.imgID)
-            itemView.i_button.setOnClickListener { clickListener.onIncButtonClicked(soda) }
-            itemView.d_button.setOnClickListener { clickListener.onDecButtonClicked(soda) }
+            textView.text = drinkable.amount.toString()
+            imageView.setImageResource(drinkable.imgID)
+            itemView.i_button.setOnClickListener { clickListener.onIncButtonClicked(drinkable) }
+            itemView.d_button.setOnClickListener { clickListener.onDecButtonClicked(drinkable) }
         }
     }
     companion object{
@@ -58,8 +58,8 @@ class MainRecyclerAdapter(private val itemClickListener: OnItemClickListener) : 
     }
 }
 interface OnItemClickListener{
-    fun onIncButtonClicked(soda: Soda)
-    fun onDecButtonClicked(soda: Soda)
+    fun onIncButtonClicked(drinkable: Drinkable)
+    fun onDecButtonClicked(drinkable: Drinkable)
 }
 
 

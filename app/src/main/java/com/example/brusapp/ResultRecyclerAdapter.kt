@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    private var items: ArrayList<Soda> = ArrayList()
+    private var items: ArrayList<Drinkable> = ArrayList()
 
     override fun onCreateViewHolder(parrent: ViewGroup, viewType: Int): ResultViewHolder {
         return  ResultViewHolder(LayoutInflater.from(parrent.context).inflate(R.layout.result_recyclerview_row,parrent,false))
@@ -37,7 +37,7 @@ class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         }
     }
 
-    fun submitList(mainList:ArrayList<Soda>){
+    fun submitList(mainList:ArrayList<Drinkable>){
         items = mainList
     }
 
@@ -45,9 +45,9 @@ class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         private val imgView: ImageView = view.findViewById(R.id.result_img)
         private val textView: TextView = view.findViewById(R.id.result_amount)
 
-        fun bind(soda: Soda){
-            imgView.setImageResource(soda.imgID)
-            textView.text = soda.amount.toString()
+        fun bind(drinkable: Drinkable){
+            imgView.setImageResource(drinkable.imgID)
+            textView.text = drinkable.amount.toString()
         }
     }
 

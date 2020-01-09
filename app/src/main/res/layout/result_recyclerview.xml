@@ -8,7 +8,7 @@
         tools:context=".ResultActivity">
 
     <Spinner
-            android:id="@+id/res_spin"
+            android:id="@+id/result_brand_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
