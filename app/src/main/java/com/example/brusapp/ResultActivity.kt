@@ -9,12 +9,12 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import kotlinx.android.synthetic.main.main_recyclerview.*
 import kotlinx.android.synthetic.main.result_recyclerview.*
 
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var resultRecyclerAdapter: ResultRecyclerAdapter
+    private lateinit var spinnerBrandAdapter: ArrayAdapter<CharSequence>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +22,12 @@ class ResultActivity : AppCompatActivity() {
 
         initRecyclerView()
         updateData()
-        initSpinner()
+        initSpinners()
     }
 
-    private fun initSpinner() {
-        result_brand_spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, DataSource.resultBrandList)
+    private fun initSpinners() {
+        spinnerBrandAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, DataSource.resultBrandList)
+        result_brand_spinner.adapter = spinnerBrandAdapter
         result_brand_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -46,7 +47,6 @@ class ResultActivity : AppCompatActivity() {
                         updateData(Brand.valueOf(temp))
                     }
                 }
-
                 resultRecyclerAdapter.notifyDataSetChanged()
             }
         }
@@ -70,7 +70,12 @@ class ResultActivity : AppCompatActivity() {
                 }
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    resultRecyclerAdapter.removeAt(viewHolder)
+                    val brand =resultRecyclerAdapter.removeAt(viewHolder)
+                    if(!DataSource.amountOfEachBrand.containsKey(brand)){
+                        spinnerBrandAdapter.notifyDataSetChanged()
+                        result_brand_spinner.setSelection(0)
+                    }
+                    if(DataSource.amountOfEachBrand.isEmpty()) finish()
                 }
 
             }
@@ -81,6 +86,9 @@ class ResultActivity : AppCompatActivity() {
 
     private fun updateData() {
         val list = DataSource.filterAmount()
+        if(list.isEmpty()){
+            finish()
+        }
         resultRecyclerAdapter.submitList(list)
     }
 

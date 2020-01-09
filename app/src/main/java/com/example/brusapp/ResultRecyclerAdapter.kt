@@ -27,14 +27,26 @@ class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
 
-    fun removeAt(holder: RecyclerView.ViewHolder){
+    fun removeAt(holder: RecyclerView.ViewHolder) : Brand{
         val position = holder.adapterPosition
-        DataSource.list[items[position].index].amount = 0
+        val drinkable = items[position]
+        DataSource.list[drinkable.index].amount = 0
         items.removeAt(position)
         notifyItemRemoved(position)
-        if(items.isEmpty()){
-            (holder.itemView.context as Activity).finish()
+
+        var amount = DataSource.amountOfEachBrand[drinkable.brand]!!
+        amount--
+        DataSource.amountOfEachBrand[drinkable.brand] = amount
+        if(amount == 0){
+            DataSource.resultBrandList.remove(drinkable.brand.name)
+            DataSource.amountOfEachBrand.remove(drinkable.brand)
+
         }
+        return drinkable.brand
+        /*if(items.isEmpty()){
+            (holder.itemView.context as Activity).finish()
+        }*/
+
     }
 
     fun submitList(mainList:ArrayList<Drinkable>){

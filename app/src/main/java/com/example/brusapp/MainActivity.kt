@@ -14,13 +14,17 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private lateinit var mainRecyclerAdapter: MainRecyclerAdapter
 
+    private lateinit var brandSpinnerAdapter: ArrayAdapter<CharSequence>
     override fun onBackPressed() {
 
     }
 
     override fun onRestart() {
         super.onRestart()
+        mainRecyclerAdapter.submitList(DataSource.filterBrand())
         mainRecyclerAdapter.notifyDataSetChanged()
+
+        main_brand_spinner.setSelection(0)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,15 +33,16 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
         initRecyclerView()
         addDataSet()
-        initSpinner()
+        initSpinners()
 
         c_button.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
             startActivity(intent)
         }
     }
-    private fun initSpinner(){
-        main_brand_spinner.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
+    private fun initSpinners(){
+        brandSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
+        main_brand_spinner.adapter = brandSpinnerAdapter
         main_brand_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
             override fun onNothingSelected(parent: AdapterView<*>) {
