@@ -104,6 +104,8 @@ class DataSource {
         }
         fun updateBrandTypePairs(fList: ArrayList<Drinkable>){
             brandTypepair.clear()
+            val merke = HashMap<Brand,Int>()
+
             for(item in fList){
                 if(!brandTypepair.containsKey(item.type)){
                     val temp = HashMap<Brand,Int>()
@@ -113,12 +115,16 @@ class DataSource {
                 }else{
                     if(!brandTypepair[item.type]!!.contains(item.brand)){
                         brandTypepair[item.type]!![item.brand] = 1
+
                     }else{
                         brandTypepair[item.type]!![item.brand]!!.plus(1)
                         //temp!!.plus(1)
                     }
                 }
+                merke[item.brand] = 1
+
             }
+            brandTypepair[Type.TYPE] = merke
         }
         fun getBrandTypePair(type: Type) :ArrayList<CharSequence>{
             val temp = ArrayList<CharSequence>()
@@ -135,11 +141,12 @@ class DataSource {
         //TYPE, STOR, LITEN, SPESIAL, VANLIG, ENERGI, NOCCO, ALKOFRI
         fun updateBrandSpinner(type: Type): ArrayList<CharSequence>{
             val temp = ArrayList<CharSequence>()
-            when(type){
+            return getBrandTypePair(type)
+           /* when(type){
                 Type.TYPE -> return brandList
                 else -> {
-                    return getBrandTypePair(type)
-                }
+
+                }*/
                 /*Type.ENERGI -> {
                     temp.add(Brand.MERKE.name)
                 }
@@ -171,8 +178,8 @@ class DataSource {
                     temp.add(Brand.MERKE.name)
                 }*/
 
-            }
-            return temp
+            //}
+           // return temp
         }
         fun filterBrand(brand: Brand):ArrayList<Drinkable>{
                 if(brand == Brand.MERKE){

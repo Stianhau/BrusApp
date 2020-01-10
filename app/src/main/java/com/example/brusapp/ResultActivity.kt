@@ -29,12 +29,12 @@ class ResultActivity : AppCompatActivity() {
 
     private fun initSpinners() {
         initBrandSpinner()
-       initTypeSpinner()
+        initTypeSpinner()
 
     }
 
     private fun initBrandSpinner() {
-        brandSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
+        brandSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.getBrandTypePair(Type.TYPE))
         result_brand_spinner.adapter = brandSpinnerAdapter
         result_brand_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
@@ -115,6 +115,7 @@ class ResultActivity : AppCompatActivity() {
         if(list.isEmpty()){
             finish()
         }
+        DataSource.updateBrandTypePairs(list)
         resultRecyclerAdapter.submitList(list)
     }
 }
