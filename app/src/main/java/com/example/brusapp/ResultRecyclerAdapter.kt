@@ -38,7 +38,7 @@ class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         amount--
         DataSource.amountOfEachBrand[drinkable.brand] = amount
         if(amount == 0){
-            DataSource.resultBrandList.remove(drinkable.brand.name)
+            //DataSource.resultBrandList.remove(drinkable.brand.name)
             DataSource.amountOfEachBrand.remove(drinkable.brand)
 
         }

@@ -137,6 +137,16 @@ class DataSource {
             }
             return temp
         }
+        fun updateTypeSpinner():ArrayList<CharSequence>{
+            val temp = ArrayList<CharSequence>()
+            temp.add(Type.TYPE.name)
+            for((k,v) in brandTypepair){
+                if(k != Type.TYPE) temp.add(k.name)
+            }
+            return temp
+        }
+
+
 
         //TYPE, STOR, LITEN, SPESIAL, VANLIG, ENERGI, NOCCO, ALKOFRI
         fun updateBrandSpinner(type: Type): ArrayList<CharSequence>{

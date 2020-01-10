@@ -2,6 +2,7 @@ package com.example.brusapp
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.service.autofill.Dataset
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -12,7 +13,7 @@ import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.result_recyclerview.*
 
 class ResultActivity : AppCompatActivity() {
-
+    //todo ONLY SHOW AVAILABLE TYPES
     private lateinit var resultRecyclerAdapter: ResultRecyclerAdapter
 
     private lateinit var typeSpinnerAdapter: ArrayAdapter<CharSequence>
@@ -41,7 +42,6 @@ class ResultActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>) {
 
             }
-
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View?,
@@ -56,7 +56,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun initTypeSpinner() {
-        typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.typeList)
+        typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.updateTypeSpinner())
         result_type_spinner.adapter = typeSpinnerAdapter
         result_type_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -97,6 +97,7 @@ class ResultActivity : AppCompatActivity() {
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val brand = resultRecyclerAdapter.removeAt(viewHolder)
+
                     if(!DataSource.amountOfEachBrand.containsKey(brand)){
                         brandSpinnerAdapter.notifyDataSetChanged()
                         result_brand_spinner.setSelection(0)
