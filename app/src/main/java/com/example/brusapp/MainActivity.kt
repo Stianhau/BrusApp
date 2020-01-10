@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         super.onRestart()
         mainRecyclerAdapter.submitList(DataSource.filterBrand())
         mainRecyclerAdapter.notifyDataSetChanged()
-
+        DataSource.updateBrandTypePairs()
         main_brand_spinner.setSelection(0)
         main_type_spinner.setSelection(0)
     }
@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
         initRecyclerView()
         addDataSet()
+        DataSource.updateBrandTypePairs()
         initSpinners()
 
         c_button.setOnClickListener {

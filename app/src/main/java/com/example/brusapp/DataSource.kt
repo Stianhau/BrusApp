@@ -11,6 +11,7 @@ class DataSource {
         val amountOfEachBrand = HashMap<Brand,Int>()
         val resultBrandList = ArrayList<CharSequence>()
 
+        val brandTypepair = HashMap<Type,HashMap<Brand,Int>>()
 
         fun createDataSet(){
             list.clear()
@@ -97,12 +98,49 @@ class DataSource {
                 item.currindex = item.index
             }
         }
+
+        fun updateBrandTypePairs(){
+            updateBrandTypePairs(list)
+        }
+        fun updateBrandTypePairs(fList: ArrayList<Drinkable>){
+            brandTypepair.clear()
+            for(item in fList){
+                if(!brandTypepair.containsKey(item.type)){
+                    val temp = HashMap<Brand,Int>()
+                    temp[item.brand] = 1
+                    brandTypepair[item.type] = temp
+
+                }else{
+                    if(!brandTypepair[item.type]!!.contains(item.brand)){
+                        brandTypepair[item.type]!![item.brand] = 1
+                    }else{
+                        brandTypepair[item.type]!![item.brand]!!.plus(1)
+                        //temp!!.plus(1)
+                    }
+                }
+            }
+        }
+        fun getBrandTypePair(type: Type) :ArrayList<CharSequence>{
+            val temp = ArrayList<CharSequence>()
+            temp.add(Brand.MERKE.name)
+            val map = brandTypepair[type]
+            if (map != null) {
+                for((k,v) in map){
+                    temp.add(k.name)
+                }
+            }
+            return temp
+        }
+
         //TYPE, STOR, LITEN, SPESIAL, VANLIG, ENERGI, NOCCO, ALKOFRI
         fun updateBrandSpinner(type: Type): ArrayList<CharSequence>{
             val temp = ArrayList<CharSequence>()
             when(type){
                 Type.TYPE -> return brandList
-                Type.ENERGI -> {
+                else -> {
+                    return getBrandTypePair(type)
+                }
+                /*Type.ENERGI -> {
                     temp.add(Brand.MERKE.name)
                 }
                 Type.STOR -> {
@@ -131,7 +169,7 @@ class DataSource {
                 }
                 Type.NOCCO -> {
                     temp.add(Brand.MERKE.name)
-                }
+                }*/
 
             }
             return temp
