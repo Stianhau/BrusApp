@@ -6,6 +6,6 @@ data class Drinkable(
     var index: Int,
     val brand: Brand,
     var currindex: Int,
-    val type: Type
-
+    val type: Type,
+    val supplier: Supplier
 )

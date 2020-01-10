@@ -65,6 +65,9 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 id: Long
             ) {
                 val temp = parent.getItemAtPosition(position).toString()
+                brandSpinnerAdapter = ArrayAdapter(this@MainActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(temp)))
+                main_brand_spinner.adapter = brandSpinnerAdapter
+
                 mainRecyclerAdapter.submitList(DataSource.filter(Type.valueOf(temp),Brand.valueOf(main_brand_spinner.selectedItem.toString())))
                 mainRecyclerAdapter.notifyDataSetChanged()
             }
