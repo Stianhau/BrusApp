@@ -49,8 +49,6 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         initType()
     }
     private fun initType(){
-
-
         typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.typeList)
         main_type_spinner.adapter = typeSpinnerAdapter
         main_type_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -60,7 +58,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
             override fun onItemSelected(
                 parent: AdapterView<*>,
-                view: View,
+                view: View?,
                 position: Int,
                 id: Long
             ) {
@@ -85,11 +83,11 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
             override fun onItemSelected(
                 parent: AdapterView<*>,
-                view: View,
+                view: View?,
                 position: Int,
                 id: Long
             ) {
-               val temp = parent.getItemAtPosition(position).toString()
+                val temp = parent.getItemAtPosition(position).toString()
                 mainRecyclerAdapter.submitList(DataSource.filter(Type.valueOf(main_type_spinner.selectedItem.toString()),Brand.valueOf(temp)))
                 mainRecyclerAdapter.notifyDataSetChanged()
             }

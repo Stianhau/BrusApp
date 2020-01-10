@@ -1,5 +1,7 @@
 package com.example.brusapp
 
+import android.icu.util.CurrencyAmount
+
 class DataSource {
     companion object{
         val list = ArrayList<Drinkable>()
@@ -236,6 +238,9 @@ class DataSource {
 
         fun filter(type: Type, brand: Brand): ArrayList<Drinkable>{
             return filterBrand(brand,filterType(type, list))
+        }
+        fun filterAmount(type: Type,brand: Brand): ArrayList<Drinkable>{
+            return filterAmount(filter(type, brand))
         }
     }
 }
