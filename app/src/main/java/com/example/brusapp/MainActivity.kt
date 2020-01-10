@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         mainRecyclerAdapter.notifyDataSetChanged()
 
         main_brand_spinner.setSelection(0)
+        main_type_spinner.setSelection(0)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +64,9 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 position: Int,
                 id: Long
             ) {
-
+                val temp = parent.getItemAtPosition(position).toString()
+                mainRecyclerAdapter.submitList(DataSource.filter(Type.valueOf(temp),Brand.valueOf(main_brand_spinner.selectedItem.toString())))
+                mainRecyclerAdapter.notifyDataSetChanged()
             }
 
         }
@@ -83,15 +86,8 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 position: Int,
                 id: Long
             ) {
-                when(parent.getItemAtPosition(position).toString()){
-                    Brand.MERKE.name -> mainRecyclerAdapter.submitList(DataSource.filterBrand())
-
-                    else -> {
-                        val temp = parent.getItemAtPosition(position).toString()
-                        mainRecyclerAdapter.submitList(DataSource.filterBrand(Brand.valueOf(temp)))
-                    }
-                }
-
+               val temp = parent.getItemAtPosition(position).toString()
+                mainRecyclerAdapter.submitList(DataSource.filter(Type.valueOf(main_type_spinner.selectedItem.toString()),Brand.valueOf(temp)))
                 mainRecyclerAdapter.notifyDataSetChanged()
             }
         }
@@ -125,3 +121,5 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         }
     }
 }
+
+

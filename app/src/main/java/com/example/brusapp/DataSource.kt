@@ -63,6 +63,26 @@ class DataSource {
             list.add(Drinkable(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size,Type.STOR))
             list.add(Drinkable(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size,Type.STOR))
 
+            list.add(Drinkable(R.drawable.hansa365, 0, list.size, Brand.COLA,list.size,Type.VANLIG))
+
+            list.add(Drinkable(R.drawable.cola05, 0, list.size, Brand.COLA,list.size,Type.LITEN))
+            list.add(Drinkable(R.drawable.mozel, 0, list.size, Brand.RINGNES,list.size,Type.LITEN))
+
+
+
+            list.add(Drinkable(R.drawable.noccper, 0, list.size, Brand.COLA,list.size,Type.NOCCO))
+
+            list.add(Drinkable(R.drawable.redbull05, 0, list.size, Brand.COLA,list.size,Type.ENERGI))
+            list.add(Drinkable(R.drawable.redbull02, 0, list.size, Brand.COLA,list.size,Type.ENERGI))
+            list.add(Drinkable(R.drawable.batteryorig, 0, list.size, Brand.RINGNES,list.size,Type.ENERGI))
+
+            list.add(Drinkable(R.drawable.crabbies, 0, list.size, Brand.COLA,list.size,Type.SPESIAL))
+
+
+            list.add(Drinkable(R.drawable.munkbay05, 0, list.size, Brand.COLA,list.size,Type.ALKOFRI))
+            list.add(Drinkable(R.drawable.munkfat05, 0, list.size, Brand.COLA,list.size,Type.ALKOFRI))
+            list.add(Drinkable(R.drawable.munkorg05, 0, list.size, Brand.COLA,list.size,Type.ALKOFRI))
+
             Brand.values().forEach {
                 brandList.add(it.name)
             }
@@ -77,6 +97,9 @@ class DataSource {
             }
         }
         fun filterBrand(brand: Brand):ArrayList<Drinkable>{
+                if(brand == Brand.MERKE){
+                    return filterBrand()
+                }
                 val filterList = ArrayList<Drinkable>()
                 for(item in list){
                     if(item.brand == brand){
@@ -84,7 +107,7 @@ class DataSource {
                         filterList.add(item)
                     }
                 }
-            return filterList
+                return filterList
         }
 
         fun filterBrand():ArrayList<Drinkable>{
@@ -121,6 +144,60 @@ class DataSource {
                 }
             }
             return filterList
+        }
+        fun filterType(type: Type): ArrayList<Drinkable>{
+            val filterList = ArrayList<Drinkable>()
+
+            return filterList
+        }
+        fun filterType(type: Type, brand: Brand): ArrayList<Drinkable> {
+            val filterList = ArrayList<Drinkable>()
+            val tempList = filterBrand(brand)
+            for(item in tempList){
+                if(item.type == type){
+                    filterList.add(item)
+                }
+            }
+            return filterList
+        }
+
+        private fun filterType(): ArrayList<Drinkable> {
+            return filterBrand()
+        }
+
+
+        fun filterBrand(brand: Brand,fList:ArrayList<Drinkable>): ArrayList<Drinkable>{
+            if(brand == Brand.MERKE){
+                return fList
+            }
+            val filterList = ArrayList<Drinkable>()
+
+            for(item in fList){
+                if(item.brand == brand){
+                    item.currindex = filterList.size
+                    filterList.add(item)
+                }
+            }
+            return filterList
+
+        }
+
+        fun filterType(type: Type,fList:ArrayList<Drinkable>): ArrayList<Drinkable>{
+            if(type == Type.TYPE){
+                return fList
+            }
+            val filterList = ArrayList<Drinkable>()
+            for(item in fList){
+                if(item.type == type){
+                    item.currindex = filterList.size
+                    filterList.add(item)
+                }
+            }
+            return filterList
+        }
+
+        fun filter(type: Type, brand: Brand): ArrayList<Drinkable>{
+            return filterBrand(brand,filterType(type, list))
         }
     }
 }
