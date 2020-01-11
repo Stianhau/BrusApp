@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private lateinit var brandSpinnerAdapter: ArrayAdapter<CharSequence>
     private lateinit var typeSpinnerAdapter: ArrayAdapter<CharSequence>
+    private lateinit var brandList: ArrayList<CharSequence>
+    private lateinit var typeList: ArrayList<CharSequence>
 
 
     override fun onBackPressed() {
@@ -26,9 +28,14 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         super.onRestart()
         mainRecyclerAdapter.submitList(DataSource.filterBrand())
         mainRecyclerAdapter.notifyDataSetChanged()
-        DataSource.updateBrandTypePairs()
         main_brand_spinner.setSelection(0)
         main_type_spinner.setSelection(0)
+        DataSource.updateBrandTypePairs()
+
+        typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,typeList)
+        brandSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,brandList)
+        main_type_spinner.adapter = typeSpinnerAdapter
+        main_brand_spinner.adapter = brandSpinnerAdapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +44,6 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
         initRecyclerView()
         addDataSet()
-        DataSource.updateBrandTypePairs()
         initSpinners()
 
         c_button.setOnClickListener {
@@ -50,9 +56,12 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         initType()
     }
     private fun initType(){
-        typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.typeList)
+        //typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.typeList)
+
+        typeSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,typeList)
         main_type_spinner.adapter = typeSpinnerAdapter
         main_type_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
             override fun onNothingSelected(parent: AdapterView<*>) {
 
             }
@@ -74,7 +83,8 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         }
     }
     private fun initBrand(){
-        brandSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,DataSource.brandList)
+        brandSpinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,brandList)
+        brandSpinnerAdapter.setNotifyOnChange(true)
         main_brand_spinner.adapter = brandSpinnerAdapter
         main_brand_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
@@ -98,6 +108,9 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private fun addDataSet() {
         DataSource.createDataSet()
+        DataSource.updateBrandTypePairs()
+        brandList = DataSource.updateBrandSpinner(Type.TYPE)
+        typeList = DataSource.updateTypeSpinner()
     }
 
     private fun initRecyclerView() {

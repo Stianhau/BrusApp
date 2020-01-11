@@ -1,6 +1,7 @@
 package com.example.brusapp
 
 import android.icu.util.CurrencyAmount
+import android.util.Log
 
 class DataSource {
     companion object{
@@ -105,33 +106,44 @@ class DataSource {
         fun updateBrandTypePairs(fList: ArrayList<Drinkable>){
             brandTypepair.clear()
             val merke = HashMap<Brand,Int>()
-
+            merke[Brand.MERKE] = 0
+            brandTypepair[Type.TYPE] = merke
             for(item in fList){
                 if(!brandTypepair.containsKey(item.type)){
                     val temp = HashMap<Brand,Int>()
                     temp[item.brand] = 1
+                    temp[Brand.MERKE] = 1
                     brandTypepair[item.type] = temp
 
                 }else{
                     if(!brandTypepair[item.type]!!.contains(item.brand)){
                         brandTypepair[item.type]!![item.brand] = 1
+                        brandTypepair[item.type]!![Brand.MERKE] = 1
 
                     }else{
-                        brandTypepair[item.type]!![item.brand]!!.plus(1)
+                        brandTypepair[item.type]!![item.brand] = brandTypepair[item.type]!![item.brand]!!.plus(1)
+                        brandTypepair[item.type]!![Brand.MERKE] = brandTypepair[item.type]!![Brand.MERKE]!!.plus(1)
                         //temp!!.plus(1)
                     }
                 }
-                merke[item.brand] = 1
+                brandTypepair[Type.TYPE]!![Brand.MERKE] = brandTypepair[Type.TYPE]!![Brand.MERKE]!!.plus(1)
+                Log.d("testtt",brandTypepair[Type.TYPE]!![Brand.MERKE].toString() )
+                if(!brandTypepair[Type.TYPE]!!.containsKey(item.brand)){
+                    brandTypepair[Type.TYPE]!![item.brand] = 1
+                }else{
+                    brandTypepair[Type.TYPE]!![item.brand] = brandTypepair[Type.TYPE]!![item.brand]!!.plus(1)
+                }
 
             }
-            brandTypepair[Type.TYPE] = merke
+
         }
-        fun getBrandTypePair(type: Type) :ArrayList<CharSequence>{
+        private fun getBrandTypePair(type: Type) :ArrayList<CharSequence>{
             val temp = ArrayList<CharSequence>()
             temp.add(Brand.MERKE.name)
             val map = brandTypepair[type]
             if (map != null) {
                 for((k,v) in map){
+                    if(k!=Brand.MERKE)
                     temp.add(k.name)
                 }
             }
