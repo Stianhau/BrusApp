@@ -119,15 +119,21 @@ class ResultActivity : AppCompatActivity() {
                             d("lul","kepppa")
                             if( DataSource.brandTypepair[Type.TYPE]!![brand] == 0){
                                 d("lul","kepppa2")
+
                                 DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
                                 brandSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.TYPE))
                                 result_brand_spinner.adapter = brandSpinnerAdapter
                                 if(DataSource.brandTypepair[type]!!.size== 1){
                                     DataSource.brandTypepair.remove(type)
                                 }
+                                typeSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateTypeSpinner())
+                                result_type_spinner.adapter = typeSpinnerAdapter
+                            }else if(DataSource.brandTypepair[type]!!.size == 1){
+                                d("lul","kepppa3")
+                                DataSource.brandTypepair.remove(type)
+                                typeSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateTypeSpinner())
+                                result_type_spinner.adapter = typeSpinnerAdapter
                             }
-                            typeSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateTypeSpinner())
-                            result_type_spinner.adapter = typeSpinnerAdapter
                         }else{
                             d("lul","heisann")
                             brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(result_type_spinner.selectedItem.toString())))
@@ -136,12 +142,15 @@ class ResultActivity : AppCompatActivity() {
                             if(DataSource.brandTypepair[Type.valueOf(result_type_spinner.selectedItem.toString())]!!.size == 1){
                                 d("lul","heisann2")
                                 DataSource.brandTypepair.remove(type)
-                                DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
+                                //DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
                                 //DataSource.brandTypepair.remove(Type.valueOf(result_type_spinner.selectedItem.toString()))
                                 typeSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateTypeSpinner())
                                 result_type_spinner.adapter = typeSpinnerAdapter
-                                brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(result_type_spinner.selectedItem.toString())))
-                                result_brand_spinner.adapter = brandSpinnerAdapter
+                                if(DataSource.brandTypepair[Type.TYPE]!![brand] == 0){
+                                    DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
+                                    brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(result_type_spinner.selectedItem.toString())))
+                                    result_brand_spinner.adapter = brandSpinnerAdapter
+                                }
                             }else if(DataSource.brandTypepair[Type.TYPE]!![brand] == 0){
                                 DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
                                 brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(result_type_spinner.selectedItem.toString())))
