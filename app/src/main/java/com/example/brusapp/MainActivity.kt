@@ -73,10 +73,10 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 id: Long
             ) {
                 val temp = parent.getItemAtPosition(position).toString()
-                brandSpinnerAdapter = ArrayAdapter(this@MainActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(temp)))
+                brandSpinnerAdapter = ArrayAdapter(this@MainActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Category.valueOf(temp)))
                 main_brand_spinner.adapter = brandSpinnerAdapter
 
-                mainRecyclerAdapter.submitList(DataSource.filter(Type.valueOf(temp),Brand.valueOf(main_brand_spinner.selectedItem.toString())))
+                mainRecyclerAdapter.submitList(DataSource.filter(Category.valueOf(temp),Brand.valueOf(main_brand_spinner.selectedItem.toString())))
                 mainRecyclerAdapter.notifyDataSetChanged()
             }
 
@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 id: Long
             ) {
                 val temp = parent.getItemAtPosition(position).toString()
-                mainRecyclerAdapter.submitList(DataSource.filter(Type.valueOf(main_type_spinner.selectedItem.toString()),Brand.valueOf(temp)))
+                mainRecyclerAdapter.submitList(DataSource.filter(Category.valueOf(main_type_spinner.selectedItem.toString()),Brand.valueOf(temp)))
                 mainRecyclerAdapter.notifyDataSetChanged()
             }
         }
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
     private fun addDataSet() {
         DataSource.createDataSet()
         DataSource.updateBrandTypePairs()
-        brandList = DataSource.updateBrandSpinner(Type.TYPE)
+        brandList = DataSource.updateBrandSpinner(Category.KATEGORI)
         typeList = DataSource.updateTypeSpinner()
     }
 

@@ -10,7 +10,7 @@ import android.widget.TextView
 class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     private var items: ArrayList<Drinkable> = ArrayList()
     private var removed = false
-    private var type = Type.TYPE
+    private var type = Category.KATEGORI
 
     override fun onCreateViewHolder(parrent: ViewGroup, viewType: Int): ResultViewHolder {
         return  ResultViewHolder(LayoutInflater.from(parrent.context).inflate(R.layout.result_recyclerview_row,parrent,false))
@@ -35,21 +35,21 @@ class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         DataSource.list[drinkable.index].amount = 0
         items.removeAt(position)
         notifyItemRemoved(position)
-        type = drinkable.type
+        type = drinkable.category
 
-        var amount = DataSource.brandTypepair[drinkable.type]!![drinkable.brand]
+        var amount = DataSource.brandTypepair[drinkable.category]!![drinkable.brand]
 
         amount = amount!! - 1
-        DataSource.brandTypepair[drinkable.type]!![drinkable.brand] = amount
+        DataSource.brandTypepair[drinkable.category]!![drinkable.brand] = amount
 
-        var merke = DataSource.brandTypepair[Type.TYPE]!![Brand.MERKE]!!.minus(1)
-        DataSource.brandTypepair[Type.TYPE]!![Brand.MERKE] = merke
+        var merke = DataSource.brandTypepair[Category.KATEGORI]!![Brand.MERKE]!!.minus(1)
+        DataSource.brandTypepair[Category.KATEGORI]!![Brand.MERKE] = merke
 
-        var type = DataSource.brandTypepair[Type.TYPE]!![drinkable.brand]!!.minus(1)
-        DataSource.brandTypepair[Type.TYPE]!![drinkable.brand] = type
+        var type = DataSource.brandTypepair[Category.KATEGORI]!![drinkable.brand]!!.minus(1)
+        DataSource.brandTypepair[Category.KATEGORI]!![drinkable.brand] = type
 
-        var temp = DataSource.brandTypepair[drinkable.type]!![Brand.MERKE]!!.minus(1)
-        DataSource.brandTypepair[drinkable.type]!![Brand.MERKE] = temp
+        var temp = DataSource.brandTypepair[drinkable.category]!![Brand.MERKE]!!.minus(1)
+        DataSource.brandTypepair[drinkable.category]!![Brand.MERKE] = temp
         /*var amount = DataSource.amountOfEachBrand[drinkable.brand]!!
         amount--
         DataSource.amountOfEachBrand[drinkable.brand] = amount*/
@@ -59,7 +59,7 @@ class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
         if(amount == 0 || merke == 0 || type == 0){
             removed = true
-            DataSource.brandTypepair[drinkable.type]!!.remove(drinkable.brand)
+            DataSource.brandTypepair[drinkable.category]!!.remove(drinkable.brand)
 
 
 
@@ -77,7 +77,7 @@ class ResultRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         removed = false
         return temp
     }
-    fun getType() :Type{
+    fun getType() :Category{
         return type
     }
 

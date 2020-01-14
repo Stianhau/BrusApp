@@ -2,13 +2,10 @@ package com.example.brusapp
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.service.autofill.Dataset
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
-import android.util.Log
 import android.util.Log.d
 import android.view.View
 import android.widget.AdapterView
@@ -55,7 +52,7 @@ class ResultActivity : AppCompatActivity() {
                 id: Long
             ) {
                 val temp = parent.getItemAtPosition(position).toString()
-                resultRecyclerAdapter.submitList(DataSource.filterAmount(Type.valueOf(result_type_spinner.selectedItem.toString()),Brand.valueOf(temp)))
+                resultRecyclerAdapter.submitList(DataSource.filterAmount(Category.valueOf(result_type_spinner.selectedItem.toString()),Brand.valueOf(temp)))
                 resultRecyclerAdapter.notifyDataSetChanged()
             }
         }
@@ -75,12 +72,12 @@ class ResultActivity : AppCompatActivity() {
                 id: Long
             ) {
                 val temp = parent.getItemAtPosition(position).toString()
-                brandSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(temp)))
+                brandSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Category.valueOf(temp)))
                 //brandList = DataSource.updateBrandSpinner(Type.valueOf(temp))
 
                 result_brand_spinner.adapter = brandSpinnerAdapter
 
-                resultRecyclerAdapter.submitList(DataSource.filterAmount(Type.valueOf(temp),Brand.valueOf(result_brand_spinner.selectedItem.toString())))
+                resultRecyclerAdapter.submitList(DataSource.filterAmount(Category.valueOf(temp),Brand.valueOf(result_brand_spinner.selectedItem.toString())))
                 resultRecyclerAdapter.notifyDataSetChanged()
                 //brandSpinnerAdapter.notifyDataSetChanged()
             }
@@ -108,20 +105,20 @@ class ResultActivity : AppCompatActivity() {
                     val brand = resultRecyclerAdapter.removeAt(viewHolder)
                     val type = resultRecyclerAdapter.getType()
                     d("lul","false")
-                    d("lul",DataSource.brandTypepair[Type.TYPE]!![Brand.MERKE].toString())
+                    d("lul",DataSource.brandTypepair[Category.KATEGORI]!![Brand.MERKE].toString())
                     if(resultRecyclerAdapter.removed()) {
                         d("lul", "xDDDDDD")
-                        d("lul", DataSource.brandTypepair[Type.TYPE]!![Brand.MERKE].toString())
-                        if (DataSource.brandTypepair[Type.TYPE]!![Brand.MERKE] == 0) {
+                        d("lul", DataSource.brandTypepair[Category.KATEGORI]!![Brand.MERKE].toString())
+                        if (DataSource.brandTypepair[Category.KATEGORI]!![Brand.MERKE] == 0) {
                             finish()
                         }
-                        if(Type.valueOf(result_type_spinner.selectedItem.toString())==Type.TYPE){
+                        if(Category.valueOf(result_type_spinner.selectedItem.toString())==Category.KATEGORI){
                             d("lul","kepppa")
-                            if( DataSource.brandTypepair[Type.TYPE]!![brand] == 0){
+                            if( DataSource.brandTypepair[Category.KATEGORI]!![brand] == 0){
                                 d("lul","kepppa2")
 
-                                DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
-                                brandSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.TYPE))
+                                DataSource.brandTypepair[Category.KATEGORI]!!.remove(brand)
+                                brandSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Category.KATEGORI))
                                 result_brand_spinner.adapter = brandSpinnerAdapter
                                 if(DataSource.brandTypepair[type]!!.size== 1){
                                     DataSource.brandTypepair.remove(type)
@@ -136,24 +133,24 @@ class ResultActivity : AppCompatActivity() {
                             }
                         }else{
                             d("lul","heisann")
-                            brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(result_type_spinner.selectedItem.toString())))
+                            brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Category.valueOf(result_type_spinner.selectedItem.toString())))
                             result_brand_spinner.adapter = brandSpinnerAdapter
-                            d("lul",DataSource.brandTypepair[Type.valueOf(result_type_spinner.selectedItem.toString())]!!.size.toString())
-                            if(DataSource.brandTypepair[Type.valueOf(result_type_spinner.selectedItem.toString())]!!.size == 1){
+                            d("lul",DataSource.brandTypepair[Category.valueOf(result_type_spinner.selectedItem.toString())]!!.size.toString())
+                            if(DataSource.brandTypepair[Category.valueOf(result_type_spinner.selectedItem.toString())]!!.size == 1){
                                 d("lul","heisann2")
                                 DataSource.brandTypepair.remove(type)
                                 //DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
                                 //DataSource.brandTypepair.remove(Type.valueOf(result_type_spinner.selectedItem.toString()))
                                 typeSpinnerAdapter = ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateTypeSpinner())
                                 result_type_spinner.adapter = typeSpinnerAdapter
-                                if(DataSource.brandTypepair[Type.TYPE]!![brand] == 0){
-                                    DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
-                                    brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(result_type_spinner.selectedItem.toString())))
+                                if(DataSource.brandTypepair[Category.KATEGORI]!![brand] == 0){
+                                    DataSource.brandTypepair[Category.KATEGORI]!!.remove(brand)
+                                    brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Category.valueOf(result_type_spinner.selectedItem.toString())))
                                     result_brand_spinner.adapter = brandSpinnerAdapter
                                 }
-                            }else if(DataSource.brandTypepair[Type.TYPE]!![brand] == 0){
-                                DataSource.brandTypepair[Type.TYPE]!!.remove(brand)
-                                brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Type.valueOf(result_type_spinner.selectedItem.toString())))
+                            }else if(DataSource.brandTypepair[Category.KATEGORI]!![brand] == 0){
+                                DataSource.brandTypepair[Category.KATEGORI]!!.remove(brand)
+                                brandSpinnerAdapter =ArrayAdapter(this@ResultActivity,android.R.layout.simple_spinner_item,DataSource.updateBrandSpinner(Category.valueOf(result_type_spinner.selectedItem.toString())))
                                 result_brand_spinner.adapter = brandSpinnerAdapter
                             }
                         }
@@ -202,7 +199,7 @@ class ResultActivity : AppCompatActivity() {
             finish()
         }
         DataSource.updateBrandTypePairs(list)
-        brandList = DataSource.updateBrandSpinner(Type.TYPE)
+        brandList = DataSource.updateBrandSpinner(Category.KATEGORI)
         typeList = DataSource.updateTypeSpinner()
         resultRecyclerAdapter.submitList(list)
     }

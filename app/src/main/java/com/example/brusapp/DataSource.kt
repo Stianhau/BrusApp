@@ -1,6 +1,5 @@
 package com.example.brusapp
 
-import android.icu.util.CurrencyAmount
 import android.util.Log
 
 class DataSource {
@@ -12,85 +11,187 @@ class DataSource {
         val amountOfEachBrand = HashMap<Brand,Int>()
         val resultBrandList = ArrayList<CharSequence>()
 
-        val brandTypepair = HashMap<Type,HashMap<Brand,Int>>()
+        val brandTypepair = HashMap<Category,HashMap<Brand,Int>>()
 
         fun createDataSet(){
             list.clear()
-            list.add(Drinkable(R.drawable.spritef, 0, list.size, Brand.COLA,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.sprite, 0, list.size, Brand.COLA,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fantalemon, 0, list.size, Brand.COLA,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.colalemon, 0, list.size, Brand.COLA,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fantaexotic, 0, list.size, Brand.COLA,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fantafree, 0, list.size, Brand.COLA,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fpfantaf, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fpvillaf, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.peref, 0, list.size, Brand.MOLDE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.sitron, 0, list.size, Brand.MOLDE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.bring, 0, list.size, Brand.MOLDE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.pere, 0, list.size, Brand.MOLDE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fpcola, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fpcolaf, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fpfanta, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.upf, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.up, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.solosup, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.solor, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.colalight, 0, list.size, Brand.COLA,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.mozel, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.mozelf, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.villaf, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.inge, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.eventyr, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.pepsi, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.pepsilemon, 0, list.size, Brand.RINGNES,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.fpvilla, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fpvannk, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.fpvann, 0, list.size, Brand.FIRSTPRICE,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.isapelsin, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.islime, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.issitron, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.isvann, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.isvannk, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.iseple, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.isgranat, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.bobleeple, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.boblesitron, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.boblevann, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.boblegranat, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.farrisgul, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.farrisgronn, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.farrisvann, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.brisrosa, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.brisrod, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.brisgronn, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
-            list.add(Drinkable(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size,Type.STOR,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.spritef, 0, list.size, Brand.COLA,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sprite, 0, list.size, Brand.COLA,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fantalemon, 0, list.size, Brand.COLA,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.colalemon, 0, list.size, Brand.COLA,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fantaexotic, 0, list.size, Brand.COLA,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fantafree, 0, list.size, Brand.COLA,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fpfantaf, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fpvillaf, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.peref, 0, list.size, Brand.MOLDE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sitron, 0, list.size, Brand.MOLDE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.bring, 0, list.size, Brand.MOLDE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.pere, 0, list.size, Brand.MOLDE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fpcola, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fpcolaf, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fpfanta, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.upf, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.up, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.solosup, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.solor, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.colalight, 0, list.size, Brand.COLA,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mozel, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.mozelf, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.villaf, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.inge, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.eventyr, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.pepsi, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.pepsilemon, 0, list.size, Brand.RINGNES,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.fpvilla, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fpvannk, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fpvann, 0, list.size, Brand.FIRSTPRICE,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.isapelsin, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.islime, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.issitron, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.isvann, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.isvannk, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.iseple, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.isgranat, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.bobleeple, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.boblesitron, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.boblevann, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.boblegranat, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.farrisgul, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.farrisgronn, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.farrisvann, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisrosa, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisrod, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisgronn, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
 
-            list.add(Drinkable(R.drawable.hansa365, 0, list.size, Brand.COLA,list.size,Type.VANLIG,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansa365, 0, list.size, Brand.COLA,list.size,Category.BEERNORMAL,Supplier.ASKO))
 
-            list.add(Drinkable(R.drawable.cola05, 0, list.size, Brand.COLA,list.size,Type.LITEN,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.mozel, 0, list.size, Brand.RINGNES,list.size,Type.LITEN,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.fantagul05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.solo05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.pepsilemon05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.fantarod05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.solor05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.solou05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.pepsi05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.villa05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.villau05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.tabx, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.colalemon, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.sprite05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.spriteu05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.powerade, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.monsterhu, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.monstergu, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.vitaminawake, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.vitaminanti, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.vitamincare, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mozel05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.mozel05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.mountaindew, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.fuzeteagr, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.fuzeteagu, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.fuzetear, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.fuzeteagrr, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+
+            list.add(Drinkable(R.drawable.colalight05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.pepsimax05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.cola05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.isklar06, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.isklar05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.urge05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.drpepper, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.urgeg05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.urgeu05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.cola033, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.colau033, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.colaf033, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+
+            list.add(Drinkable(R.drawable.isklark05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.imsdal02, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.imsdal05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.imsdal05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.farrisgu05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.farris05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisorange05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.farrisgr05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisgronn05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.brisrod05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.bris05, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+
+            list.add(Drinkable(R.drawable.redbull02, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbull05, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.burnki, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.burnorig, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbullo, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbullu02, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbullu05, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.burns, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.burnzero, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.burnmang, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.monstergr, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.monsterju, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.batteryfr, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.batteryorig, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.monsterz, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.monstergul, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.batteryblue, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.batterynoc, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.batterynocgr, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.monsterro, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.monsterlill, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.monsterrod, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.batterypeach, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+
+            list.add(Drinkable(R.drawable.powerkingu, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.powerking, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.colaener, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.colaenerm, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.trstb, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.trstg, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.battery4, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbull4, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbullw, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbullg, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.redbullf, 0, list.size, Brand.ENERGY,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.telemarks, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.telemarkm, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.imsdal06, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.imsdalr, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.imsdalg, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.imsdalgr, 0, list.size, Brand.VANN,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.snapplekiw, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.snapplem, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.noccocarnevall, 0, list.size, Brand.NOCCO,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.noccper, 0, list.size, Brand.NOCCO,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.noccofersk, 0, list.size, Brand.NOCCO,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.noccocar, 0, list.size, Brand.NOCCO,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.noccomiami, 0, list.size, Brand.NOCCO,list.size,Category.LITENBRUS,Supplier.RINGNES))
+            list.add(Drinkable(R.drawable.noccoblue, 0, list.size, Brand.NOCCO,list.size,Category.LITENBRUS,Supplier.RINGNES))
 
 
+            list.add(Drinkable(R.drawable.hansaf, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansaff, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansapf, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansafridge, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansa365, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansal, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansai, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansap, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
 
-            list.add(Drinkable(R.drawable.noccper, 0, list.size, Brand.COLA,list.size,Type.NOCCO,Supplier.ASKO))
 
-            list.add(Drinkable(R.drawable.redbull05, 0, list.size, Brand.COLA,list.size,Type.ENERGI,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.redbull02, 0, list.size, Brand.COLA,list.size,Type.ENERGI,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.batteryorig, 0, list.size, Brand.RINGNES,list.size,Type.ENERGI,Supplier.RINGNES))
-
-            list.add(Drinkable(R.drawable.crabbies, 0, list.size, Brand.COLA,list.size,Type.SPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.crabbies, 0, list.size, Brand.COLA,list.size,Category.BEERSPESIAL,Supplier.ASKO))
 
 
-            list.add(Drinkable(R.drawable.munkbay05, 0, list.size, Brand.MUNKHOLM,list.size,Type.ALKOFRI,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.munkfat05, 0, list.size, Brand.MUNKHOLM,list.size,Type.ALKOFRI,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.munkorg05, 0, list.size, Brand.MUNKHOLM,list.size,Type.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkbay05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkfat05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkorg05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
 
             Brand.values().forEach {
                 brandList.add(it.name)
             }
 
-            Type.values().forEach {
+            Category.values().forEach {
                 typeList.add(it.name)
             }
         }
@@ -107,42 +208,42 @@ class DataSource {
             brandTypepair.clear()
             val merke = HashMap<Brand,Int>()
             merke[Brand.MERKE] = 0
-            brandTypepair[Type.TYPE] = merke
+            brandTypepair[Category.KATEGORI] = merke
             for(item in fList){
-                if(!brandTypepair.containsKey(item.type)){
+                if(!brandTypepair.containsKey(item.category)){
                     val temp = HashMap<Brand,Int>()
                     temp[item.brand] = 1
                     temp[Brand.MERKE] = 1
-                    brandTypepair[item.type] = temp
+                    brandTypepair[item.category] = temp
 
                 }else{
-                    if(!brandTypepair[item.type]!!.contains(item.brand)){
-                        brandTypepair[item.type]!![item.brand] = 1
-                        brandTypepair[item.type]!![Brand.MERKE] = 1
+                    if(!brandTypepair[item.category]!!.contains(item.brand)){
+                        brandTypepair[item.category]!![item.brand] = 1
+                        brandTypepair[item.category]!![Brand.MERKE] = 1
 
                     }else{
-                        brandTypepair[item.type]!![item.brand] = brandTypepair[item.type]!![item.brand]!!.plus(1)
-                        brandTypepair[item.type]!![Brand.MERKE] = brandTypepair[item.type]!![Brand.MERKE]!!.plus(1)
+                        brandTypepair[item.category]!![item.brand] = brandTypepair[item.category]!![item.brand]!!.plus(1)
+                        brandTypepair[item.category]!![Brand.MERKE] = brandTypepair[item.category]!![Brand.MERKE]!!.plus(1)
                         //temp!!.plus(1)
                     }
                 }
-                brandTypepair[Type.TYPE]!![Brand.MERKE] = brandTypepair[Type.TYPE]!![Brand.MERKE]!!.plus(1)
-                Log.d("testtt",brandTypepair[Type.TYPE]!![Brand.MERKE].toString() )
-                if(!brandTypepair[Type.TYPE]!!.containsKey(item.brand)){
-                    brandTypepair[Type.TYPE]!![item.brand] = 1
+                brandTypepair[Category.KATEGORI]!![Brand.MERKE] = brandTypepair[Category.KATEGORI]!![Brand.MERKE]!!.plus(1)
+                Log.d("testtt",brandTypepair[Category.KATEGORI]!![Brand.MERKE].toString() )
+                if(!brandTypepair[Category.KATEGORI]!!.containsKey(item.brand)){
+                    brandTypepair[Category.KATEGORI]!![item.brand] = 1
                 }else{
-                    brandTypepair[Type.TYPE]!![item.brand] = brandTypepair[Type.TYPE]!![item.brand]!!.plus(1)
+                    brandTypepair[Category.KATEGORI]!![item.brand] = brandTypepair[Category.KATEGORI]!![item.brand]!!.plus(1)
                 }
 
             }
 
         }
-        private fun getBrandTypePair(type: Type) :ArrayList<CharSequence>{
+        private fun getBrandTypePair(category: Category) :ArrayList<CharSequence>{
             val temp = ArrayList<CharSequence>()
             temp.add(Brand.MERKE.name)
-            val map = brandTypepair[type]
+            val map = brandTypepair[category]
             if (map != null) {
-                for((k,v) in map){
+                for((k, _) in map){
                     if(k!=Brand.MERKE)
                     temp.add(k.name)
                 }
@@ -151,9 +252,9 @@ class DataSource {
         }
         fun updateTypeSpinner():ArrayList<CharSequence>{
             val temp = ArrayList<CharSequence>()
-            temp.add(Type.TYPE.name)
+            temp.add(Category.KATEGORI.name)
             for((k,v) in brandTypepair){
-                if(k != Type.TYPE) temp.add(k.name)
+                if(k != Category.KATEGORI) temp.add(k.name)
             }
             return temp
         }
@@ -161,9 +262,9 @@ class DataSource {
 
 
         //TYPE, STOR, LITEN, SPESIAL, VANLIG, ENERGI, NOCCO, ALKOFRI
-        fun updateBrandSpinner(type: Type): ArrayList<CharSequence>{
+        fun updateBrandSpinner(category: Category): ArrayList<CharSequence>{
             val temp = ArrayList<CharSequence>()
-            return getBrandTypePair(type)
+            return getBrandTypePair(category)
            /* when(type){
                 Type.TYPE -> return brandList
                 else -> {
@@ -252,16 +353,16 @@ class DataSource {
             }
             return filterList
         }
-        fun filterType(type: Type): ArrayList<Drinkable>{
+        fun filterType(category: Category): ArrayList<Drinkable>{
             val filterList = ArrayList<Drinkable>()
 
             return filterList
         }
-        fun filterType(type: Type, brand: Brand): ArrayList<Drinkable> {
+        fun filterType(category: Category, brand: Brand): ArrayList<Drinkable> {
             val filterList = ArrayList<Drinkable>()
             val tempList = filterBrand(brand)
             for(item in tempList){
-                if(item.type == type){
+                if(item.category == category){
                     filterList.add(item)
                 }
             }
@@ -289,13 +390,13 @@ class DataSource {
 
         }
 
-        fun filterType(type: Type,fList:ArrayList<Drinkable>): ArrayList<Drinkable>{
-            if(type == Type.TYPE){
+        fun filterType(category: Category, fList:ArrayList<Drinkable>): ArrayList<Drinkable>{
+            if(category == Category.KATEGORI){
                 return fList
             }
             val filterList = ArrayList<Drinkable>()
             for(item in fList){
-                if(item.type == type){
+                if(item.category == category){
                     item.currindex = filterList.size
                     filterList.add(item)
                 }
@@ -303,20 +404,20 @@ class DataSource {
             return filterList
         }
 
-        fun filter(type: Type, brand: Brand): ArrayList<Drinkable>{
-            return filterBrand(brand,filterType(type, list))
+        fun filter(category: Category, brand: Brand): ArrayList<Drinkable>{
+            return filterBrand(brand,filterType(category, list))
         }
-        fun filterAmount(type: Type,brand: Brand): ArrayList<Drinkable>{
-            return filterAmount(filter(type, brand))
+        fun filterAmount(category: Category, brand: Brand): ArrayList<Drinkable>{
+            return filterAmount(filter(category, brand))
         }
     }
 }
 enum class Brand{
-    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, MUNKHOLM, HANSA, ;
+    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, MUNKHOLM, HANSA, ENERGY, NOCCO, SPESIAL, FRYDENLUND, AASS, TUBRING ;
 
 }
-enum class Type{
-    TYPE, STOR, LITEN, ENERGI, NOCCO, VANLIG, SPESIAL,   ALKOFRI
+enum class Category{
+    KATEGORI, STORBRUS, LITENBRUS, BEERNORMAL, BEERSPESIAL, ALKOFRI
 }
 
 enum class Supplier{
