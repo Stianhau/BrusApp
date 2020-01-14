@@ -211,7 +211,87 @@ class DataSource {
             list.add(Drinkable(R.drawable.tuborgfrid, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
 
 
-            list.add(Drinkable(R.drawable.crabbies, 0, list.size, Brand.COLA,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sommerp, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sommerl, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sommer, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sommerr, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.grevensjord, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mackcidr, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mackcidg, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.grevensfrukt, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.grevensf, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.grevensl, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.grevense, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.grevenss, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.grevensp, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.bulmersg, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.bulmersr, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.bulmersgul, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.bulmerso, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.halmstadcider, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.smirnoff4, 0, list.size, Brand.CIDER,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+
+            list.add(Drinkable(R.drawable.breezerwater, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.breezero, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.breezers, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.breezerlime, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.breezerlemon, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.breezermango, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.vk, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.halmstadlong, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.halmstadaloah, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.halmstadmojito, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.halmstadcrush, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.halmstadspritz, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.halmstadar, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.flamingor, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.flamingo, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.stella, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mackgging, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.shaker, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.smirnoff, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.smirnoffice, 0, list.size, Brand.RUSBRUS,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+
+            list.add(Drinkable(R.drawable.nordlands, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansawi, 0, list.size, Brand.HANSA,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansab, 0, list.size, Brand.HANSA,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mackgul, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mack12, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.isbjorn, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.san, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.pilsnerur, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.coronal, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.paul, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.roadcrew, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.nfat, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tidi, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.gukko, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.peroniw, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tiger, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.doblougs, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.peroni, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sol, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.blanc, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.kron, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mackging, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mackc, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.roscoe, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.crabbies, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.gingerjoe, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.gingerbeer, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansavienna, 0, list.size, Brand.HANSA,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.neww, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansaport, 0, list.size, Brand.HANSA,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.birr, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.gunnies, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.macknord, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.mackhaakon, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
+
+
+
+
+
+
             list.add(Drinkable(R.drawable.munkbay05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
             list.add(Drinkable(R.drawable.munkfat05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
             list.add(Drinkable(R.drawable.munkorg05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
@@ -442,7 +522,7 @@ class DataSource {
     }
 }
 enum class Brand{
-    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, MUNKHOLM, HANSA, ENERGY, NOCCO, SPESIAL, FRYDENLUND, AASS, TUBRING, CARLHEIN ;
+    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, MUNKHOLM, HANSA, ENERGY, NOCCO, SPESIAL, FRYDENLUND, AASS, TUBRING, CARLHEIN, CIDER, RUSBRUS ;
 
 }
 enum class Category{
