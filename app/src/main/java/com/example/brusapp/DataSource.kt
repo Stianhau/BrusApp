@@ -288,13 +288,44 @@ class DataSource {
             list.add(Drinkable(R.drawable.mackhaakon, 0, list.size, Brand.SPESIAL,list.size,Category.BEERSPESIAL,Supplier.ASKO))
 
 
+            list.add(Drinkable(R.drawable.hansanull, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansalett, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassuten, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassuteni, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassvorter, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.hansavorter, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.dos, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.peroniu, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.heinikenu, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.erdinger, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.erdingerl, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.sommeru, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.clausthalerw, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.clausthaler, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.clausthalerpale, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.clausthalerdry, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.carlsbergu, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.ringneslett, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.ringnesu, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkholmf, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkholm, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkholmfat, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkholmipa, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.munkholmw, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.ok, 0, list.size, Brand.DIVALKOHOLFRI,list.size,Category.ALKOFRI,Supplier.ASKO))
 
-
-
-
-            list.add(Drinkable(R.drawable.munkbay05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.munkfat05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
-            list.add(Drinkable(R.drawable.munkorg05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.fenti, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonicz, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonicr, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonicb, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonicl, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonic, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonic, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonics, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonicf, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonic1, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonicz1, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tonicl1, 0, list.size, Brand.TONIC,list.size,Category.ALKOFRI,Supplier.ASKO))
 
             Brand.values().forEach {
                 brandList.add(it.name)
@@ -522,7 +553,7 @@ class DataSource {
     }
 }
 enum class Brand{
-    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, MUNKHOLM, HANSA, ENERGY, NOCCO, SPESIAL, FRYDENLUND, AASS, TUBRING, CARLHEIN, CIDER, RUSBRUS ;
+    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, HANSA, ENERGY, NOCCO, SPESIAL, FRYDENLUND, AASS, TUBRING, CARLHEIN, CIDER, RUSBRUS, DIVALKOHOLFRI, TONIC ;
 
 }
 enum class Category{
