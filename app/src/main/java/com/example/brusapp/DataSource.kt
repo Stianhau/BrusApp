@@ -65,8 +65,6 @@ class DataSource {
             list.add(Drinkable(R.drawable.brisblo, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
             list.add(Drinkable(R.drawable.brisorange, 0, list.size, Brand.VANN,list.size,Category.STORBRUS,Supplier.RINGNES))
 
-            list.add(Drinkable(R.drawable.hansa365, 0, list.size, Brand.COLA,list.size,Category.BEERNORMAL,Supplier.ASKO))
-
             list.add(Drinkable(R.drawable.fantagul05, 0, list.size, Brand.COLA,list.size,Category.LITENBRUS,Supplier.ASKO))
             list.add(Drinkable(R.drawable.solo05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
             list.add(Drinkable(R.drawable.pepsilemon05, 0, list.size, Brand.RINGNES,list.size,Category.LITENBRUS,Supplier.RINGNES))
@@ -179,10 +177,41 @@ class DataSource {
             list.add(Drinkable(R.drawable.hansai, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
             list.add(Drinkable(R.drawable.hansap, 0, list.size, Brand.HANSA,list.size,Category.BEERNORMAL,Supplier.ASKO))
 
+            list.add(Drinkable(R.drawable.aasspal, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassl, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aasspinta, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassb, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassi, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassf, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassvienna, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.aassp, 0, list.size, Brand.AASS,list.size,Category.BEERNORMAL,Supplier.ASKO))
+
+            list.add(Drinkable(R.drawable.frydh, 0, list.size, Brand.FRYDENLUND,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.frydb, 0, list.size, Brand.FRYDENLUND,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.frydp, 0, list.size, Brand.FRYDENLUND,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.frydi, 0, list.size, Brand.FRYDENLUND,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.frydpil, 0, list.size, Brand.FRYDENLUND,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.frydf, 0, list.size, Brand.FRYDENLUND,list.size,Category.BEERNORMAL,Supplier.ASKO))
+
+            list.add(Drinkable(R.drawable.heini, 0, list.size, Brand.CARLHEIN,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.heinifrid, 0, list.size, Brand.CARLHEIN,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.carlf, 0, list.size, Brand.CARLHEIN,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.carl, 0, list.size, Brand.CARLHEIN,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.carlfid, 0, list.size, Brand.CARLHEIN,list.size,Category.BEERNORMAL,Supplier.ASKO))
+
+            list.add(Drinkable(R.drawable.ringnes033, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.ringnes, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.ringnesfrid, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.ringnesl, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.ringnesu, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tuborgf, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tuborgfat, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tuborgs, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tuborgl, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+            list.add(Drinkable(R.drawable.tuborgfrid, 0, list.size, Brand.TUBRING,list.size,Category.BEERNORMAL,Supplier.ASKO))
+
 
             list.add(Drinkable(R.drawable.crabbies, 0, list.size, Brand.COLA,list.size,Category.BEERSPESIAL,Supplier.ASKO))
-
-
             list.add(Drinkable(R.drawable.munkbay05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
             list.add(Drinkable(R.drawable.munkfat05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
             list.add(Drinkable(R.drawable.munkorg05, 0, list.size, Brand.MUNKHOLM,list.size,Category.ALKOFRI,Supplier.ASKO))
@@ -413,7 +442,7 @@ class DataSource {
     }
 }
 enum class Brand{
-    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, MUNKHOLM, HANSA, ENERGY, NOCCO, SPESIAL, FRYDENLUND, AASS, TUBRING ;
+    MERKE, RINGNES, COLA, VANN, FIRSTPRICE, MOLDE, MUNKHOLM, HANSA, ENERGY, NOCCO, SPESIAL, FRYDENLUND, AASS, TUBRING, CARLHEIN ;
 
 }
 enum class Category{
